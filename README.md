@@ -11,9 +11,11 @@
 
 
 ## Usage
-Wrapping TeX math in `$` or `$$` and ASCIImath in \`. Paste MathML as is.
+Import the package and fill the `math` property with some text containing your formals. Wrap TeX in `$` or `$$` and ASCIImath in \`. Paste MathML as is.
 
 ```js
+import React, {Component} from 'react'
+import {render} from 'react-dom'
 import MathJax from 'react-mathjax-preview'
 
 const math = String.raw`
@@ -24,7 +26,6 @@ const math = String.raw`
       <mi>y</mi>
     </menclose>
   </math>`
-
 
 class Demo extends Component {
   constructor(props) {
