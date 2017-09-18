@@ -1,6 +1,6 @@
 {
   "name": "react-mathjax-preview",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "MathJax React component you were looking for.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -34,7 +34,11 @@
   "license": "MIT",
   "repository": "https://github.com/mehdisadeghi/react-mathjax-preview",
   "keywords": [
+    "react",
     "react-component",
-    "mathjax"
+    "mathjax",
+    "tex",
+    "asciimath",
+    "mathml"
   ]
 }
