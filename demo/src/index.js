@@ -12,6 +12,8 @@ const mxml = String.raw`
   </menclose>
 </math>
 
+\`sum_(i=1)^n i^3=((n(n+1))/2)^2\`
+
 $\lim_{x \to \infty} \exp(-x) = 0$
 
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -66,13 +68,25 @@ $$k_{n+1} = n^2 + k_n^2 - k_{n-1}$$
 
 $k_{n+1} = n^2 + k_n^2 - k_{n-1}$
 `
+const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`'
+const math = String.raw`
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+    <menclose notation="circle box">
+      <mi> x </mi><mo> + </mo><mi> y </mi>
+    </menclose>
+  </math>
+
+  $$\lim_{x \to \infty} \exp(-x) = 0$$
+
+  ${asciimath}`
+
 
 class Demo extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      math: tex
+      math: math
     }
 
     this.handleclick.bind(this)

@@ -6,6 +6,7 @@
 `react-mathjax-preview` provides one React component to render MathML, TeX or ASCIImath formulas.
 
 ## Installation
+Install `react-mathjax-preview` as a dependency:
 
     npm install react-mathjax-preview
 
@@ -17,14 +18,17 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import MathJax from 'react-mathjax-preview'
 
+const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`' # Because of the backtick
 const math = String.raw`
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
     <menclose notation="circle box">
-      <mi>x</mi>
-      <mo>+</mo>
-      <mi>y</mi>
+      <mi> x </mi><mo> + </mo><mi> y </mi>
     </menclose>
-  </math>`
+  </math>
+
+  $$\lim_{x \to \infty} \exp(-x) = 0$$
+
+  ${asciimath}`
 
 class Demo extends Component {
   constructor(props) {
