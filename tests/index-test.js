@@ -15,9 +15,10 @@ describe('Component', () => {
     unmountComponentAtNode(node)
   })
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
+  //TODO: test MathJax rendered output
+  it('renders MathJax', () => {
+    render(<Component math={String.raw`$\lim_{x \to \infty} \exp(-x) = 0$`}/>, node, () => {
+      expect(node.innerHTML).toContain('react-mathjax-preview-result')
     })
   })
 })
