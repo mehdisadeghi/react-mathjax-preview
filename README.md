@@ -9,7 +9,6 @@
 
     npm install react-mathjax-preview
 
-
 ## Usage
 Import the package and fill the `math` property with some text containing your formals. Wrap TeX in `$` or `$$` and ASCIImath in \`. Paste MathML as is.
 
