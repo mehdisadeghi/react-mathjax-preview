@@ -3,12 +3,14 @@
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 
-`react-mathjax-preview` provides one React component to render MathML, TeX or ASCIImath formulas.
+`react-mathjax-preview` provides one React component to render MathML, TeX or ASCIImath formulas. See [demo](./demo/dist/index.html).
 
 ## Installation
 Install `react-mathjax-preview` as a dependency:
 
-    npm install react-mathjax-preview
+```
+npm install react-mathjax-preview
+```
 
 ## Usage
 Import the package and fill the `math` property with some text containing your formals. Wrap TeX in `$` or `$$` and ASCIImath in \`. Paste MathML as is.
@@ -44,9 +46,11 @@ class Demo extends Component {
 
 See [demo](./demo/src/index.js) for a complete example. You can also play with the demo:
 
-    git clone https://github.com/mehdisadeghi/react-mathjax-preview && cd react-mathjax-preview
-    npm install
-    npm run start
+```
+git clone https://github.com/mehdisadeghi/react-mathjax-preview && cd react-mathjax-preview
+npm install
+npm run start
+```
 
 And browse to [localhost:3000](http://localhost:3000).
 
