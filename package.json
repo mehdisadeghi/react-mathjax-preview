@@ -26,7 +26,7 @@
     "react": "15.x || 16.x"
   },
   "devDependencies": {
-    "nwb": "0.18.x",
+    "nwb": "https://github.com/insin/nwb",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
