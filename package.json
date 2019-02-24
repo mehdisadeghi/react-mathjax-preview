@@ -30,6 +30,9 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
+  "resolutions": {
+    "nwb/**/webpack-dev-server": "^3.1.11"
+  },
   "author": "Mehdi Sadeghi",
   "homepage": "https://github.com/mehdisadeghi/react-mathjax-preview",
   "license": "MIT",
