@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import loadScript from 'load-script'
+import DOMPurify from 'dompurify'
 
 const SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_HTMLorMML'
 
@@ -39,7 +40,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    this.preview.innerHTML = this.props.math
+    this.preview.innerHTML = DOMPurify.sanitize(this.props.math)
     this.state.loaded? MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview]): loadScript(SCRIPT, this.onLoad)
   }
 

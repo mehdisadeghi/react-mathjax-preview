@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
+import DOMPurify from 'dompurify'
 
 import Example from '../../src'
 
@@ -81,6 +82,9 @@ const math = String.raw`
   ${asciimath}`
 
 
+const bad = `<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="document.body.style.backgroundColor = 'red';alert('Im a bunch of arbitrary javascript!!!');">`
+
+
 class Demo extends Component {
 
   constructor(props) {
@@ -93,7 +97,7 @@ class Demo extends Component {
   }
 
   handleclick = (e) => {
-    this.setState({math: this.buffer.value})
+    this.setState({math: DOMPurify.sanitize(this.buffer.value)})
   }
 
   render() {

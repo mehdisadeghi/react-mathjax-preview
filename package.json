@@ -19,6 +19,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "dompurify": "^1.0.10",
     "load-script": "^1.0.0"
   },
   "peerDependencies": {
