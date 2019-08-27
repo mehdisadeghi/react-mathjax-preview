@@ -26,7 +26,6 @@
     "react": "15.x || 16.x"
   },
   "devDependencies": {
-    "npx": "^10.2.0",
     "react": "15.x || 16.x",
     "react-dom": "15.x || 16.x"
   },
