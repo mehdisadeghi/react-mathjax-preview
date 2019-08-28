@@ -113,7 +113,7 @@ class Demo extends Component {
         <li>Asciimath: <code>`...`</code>.</li>
       </ul>
       <input type='button' onClick={this.handleclick} value='Render'/>
-      <Example math={this.state.math} />
+      <Example math={this.state.math} style={{marginTop: '20px'}}/>
     </div>
   }
 }
