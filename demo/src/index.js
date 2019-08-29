@@ -93,26 +93,28 @@ class Demo extends Component {
       math: math
     }
 
-    this.handleclick.bind(this)
+    this.renderMath.bind(this)
   }
 
-  handleclick = (e) => {
+  renderMath = (e) => {
     this.setState({math: DOMPurify.sanitize(this.buffer.value)})
   }
 
   render() {
-    return <div>
-      <h1>react-mathjax-preview Demo</h1>
-      <p>Type some TeX or asciimath or copy paste some MathML in the box below and press render button.</p>
-      <textarea style={{width: '50%', height: '150px'}} ref={(node) => {this.buffer = node}}/>
+    return <div style={{width: "800px", margin: "auto"}}>
+      <h1>react-mathjax-preview</h1>
+      <p>Enter some TeX, asciimath or MathML in the box below and press the render button.</p>
+      <textarea onChange={this.renderMath} style={{width: '100%', height: '150px'}} ref={(node) => {this.buffer = node}}/>
       <br/>
-      Configured delimiters:
-      <ul>
-        <li>TeX, inline mode: <code>\(...\)</code> or <code>$...$</code></li>
-        <li>TeX, display mode: <code>\[...\]</code> or <code> $$...$$</code></li>
-        <li>Asciimath: <code>`...`</code>.</li>
-      </ul>
-      <input type='button' onClick={this.handleclick} value='Render'/>
+      <p>
+          Configured delimiters:
+          <ul>
+            <li>TeX, inline mode: <code>\(...\)</code> or <code>$...$</code></li>
+            <li>TeX, display mode: <code>\[...\]</code> or <code> $$...$$</code></li>
+            <li>Asciimath: <code>`...`</code>.</li>
+          </ul>
+          <input type='button' onClick={this.renderMath} value='Render'/>
+      </p>
       <Example math={this.state.math} style={{marginTop: '20px'}}/>
     </div>
   }
