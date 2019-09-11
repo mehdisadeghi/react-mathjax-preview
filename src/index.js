@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import loadScript from 'load-script'
 import DOMPurify from 'dompurify'
 
-const SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_HTMLorMML'
+const SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
 
 export default class extends Component {
   static propTypes = {
