@@ -57,11 +57,11 @@ And browse to [localhost:3000](http://localhost:3000).
 # License
 MIT
 
-[build-badge]: https://img.shields.io/travis/mehdisadeghi/react-mathjax-preview/master.png?style=flat-square
+[build-badge]: https://img.shields.io/travis/mehdisadeghi/react-mathjax-preview/master
 [build]: https://travis-ci.org/mehdisadeghi/react-mathjax-preview
 
 [npm-badge]: https://img.shields.io/npm/v/react-mathjax-preview
 [npm]: https://www.npmjs.org/package/react-mathjax-preview
 
-[coveralls-badge]: https://img.shields.io/coveralls/mehdisadeghi/react-mathjax-preview/master.png?style=flat-square
+[coveralls-badge]: https://img.shields.io/coveralls/mehdisadeghi/react-mathjax-preview/master
 [coveralls]: https://coveralls.io/github/mehdisadeghi/react-mathjax-preview
