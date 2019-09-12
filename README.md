@@ -60,7 +60,7 @@ MIT
 [build-badge]: https://img.shields.io/travis/mehdisadeghi/react-mathjax-preview/master.png?style=flat-square
 [build]: https://travis-ci.org/mehdisadeghi/react-mathjax-preview
 
-[npm-badge]: https://img.shields.io/npm/v/react-mathjax-preview.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/react-mathjax-preview
 [npm]: https://www.npmjs.org/package/react-mathjax-preview
 
 [coveralls-badge]: https://img.shields.io/coveralls/mehdisadeghi/react-mathjax-preview/master.png?style=flat-square
