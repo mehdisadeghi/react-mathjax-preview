@@ -7,13 +7,15 @@ const SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?
 
 export default class extends Component {
   static propTypes = {
+    config: PropTypes.object,
     className: PropTypes.string,
-    style: PropTypes.string,
     math: PropTypes.string,
+    style: PropTypes.string,
   }
 
   static defaultProps = {
-    math: ''
+    config: {},
+    math: '',
   }
 
   constructor(props) {
@@ -31,10 +33,10 @@ export default class extends Component {
     if (err)
       console.log(err)
     else {
-      MathJax.Hub.Config({
+      MathJax.Hub.Config(Object.assign({
         showMathMenu: true,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-      })
+      }, this.props.config))
       window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview])
     }
   }
