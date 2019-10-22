@@ -26,8 +26,8 @@
     "react": "15.x || 16.x"
   },
   "devDependencies": {
-    "react": "16.10.2",
-    "react-dom": "16.10.2"
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
   },
   "author": "Mehdi Sadeghi",
   "homepage": "https://github.com/mehdisadeghi/react-mathjax-preview",
