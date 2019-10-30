@@ -36,6 +36,7 @@ export default class extends Component {
       MathJax.Hub.Config(Object.assign({
         showMathMenu: true,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
+        skipStartupTypeset: true,
       }, this.props.config))
       window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview])
     }
