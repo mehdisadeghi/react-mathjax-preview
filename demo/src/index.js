@@ -101,12 +101,12 @@ class Demo extends Component {
   }
 
   render() {
-    return <div style={{width: "800px", margin: "auto"}}>
+    return <div style={{width: "80vw", margin: "auto"}}>
       <h1>react-mathjax-preview</h1>
       <p>Enter some TeX, asciimath or MathML in the box below and press the render button.</p>
       <textarea onChange={this.renderMath} style={{width: '100%', height: '150px'}} ref={(node) => {this.buffer = node}}/>
       <br/>
-      <p>
+      <div>
           Configured delimiters:
           <ul>
             <li>TeX, inline mode: <code>\(...\)</code> or <code>$...$</code></li>
@@ -114,7 +114,7 @@ class Demo extends Component {
             <li>Asciimath: <code>`...`</code>.</li>
           </ul>
           <input type='button' onClick={this.renderMath} value='Render'/>
-      </p>
+      </div>
       <Example math={this.state.math} style={{marginTop: '20px'}}/>
     </div>
   }

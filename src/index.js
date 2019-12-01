@@ -10,7 +10,7 @@ export default class extends Component {
     config: PropTypes.object,
     className: PropTypes.string,
     math: PropTypes.string,
-    style: PropTypes.string,
+    style: PropTypes.object,
   }
 
   static defaultProps = {
