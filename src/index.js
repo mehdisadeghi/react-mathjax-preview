@@ -1,79 +1,80 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import loadScript from 'load-script'
-import DOMPurify from 'dompurify'
+import React, { Component, useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
+import DOMPurify from "dompurify";
 
-const SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
+const SCRIPT_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML";
 
-export default class extends Component {
-  static propTypes = {
-    config: PropTypes.object,
-    className: PropTypes.string,
-    math: PropTypes.string,
-    style: PropTypes.object,
-  }
+const baseConfig = {
+  showMathMenu: true,
+  tex2jax: {
+    inlineMath: [
+      ["$", "$"],
+      ["\\(", "\\)"]
+    ]
+  },
+  skipStartupTypeset: true
+};
 
-  static defaultProps = {
-    config: {},
-    math: '',
-  }
+export default function MathJaxPreview({ config, className, math, style }) {
+  const sanitizedMath = DOMPurify.sanitize(math);
+  const previewRef = useRef();
+  const [loadingState, setLoadingState] = useState("loading");
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      loaded: false,
-      oldMath: props.math
+  useEffect(() => {
+    let mathjaxScriptTag = document.querySelector(
+      `script[src="${SCRIPT_URL}"]`
+    );
+    if (!mathjaxScriptTag) {
+      mathjaxScriptTag = document.createElement("script");
+      mathjaxScriptTag.async = true;
+      mathjaxScriptTag.src = SCRIPT_URL;
+
+      for (const [k, v] of Object.entries(config || {})) {
+        mathjaxScriptTag.setAttribute(k, v);
+      }
+      const node = document.head || document.getElementsByTagName("head")[0];
+      node.appendChild(mathjaxScriptTag);
     }
-  }
+    const onloadHandler = () => {
+      setLoadingState("loaded");
+      window.MathJax.Hub.Config({ ...baseConfig, ...config });
+    };
+    const onerrorHandler = () => {
+      setLoadingState("failed");
+    };
 
-  onLoad = (err) => {
-    this.setState({
-        loaded: true
-    })
-    if (err)
-      console.log(err)
-    else {
-      MathJax.Hub.Config(Object.assign({
-        showMathMenu: true,
-        tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-        skipStartupTypeset: true,
-      }, this.props.config))
-      window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview])
+    mathjaxScriptTag.addEventListener("load", onloadHandler);
+    mathjaxScriptTag.addEventListener("error", onerrorHandler);
+
+    return () => {
+      mathjaxScriptTag.removeEventListener("load", onloadHandler);
+      mathjaxScriptTag.removeEventListener("error", onloadHandler);
+    };
+  }, [setLoadingState, config, baseConfig]);
+
+  useEffect(() => {
+    if (loadingState !== "loaded") {
+      return;
     }
-  }
-
-  componentDidMount() {
-    this.preview.innerHTML = DOMPurify.sanitize(this.props.math)
-    this.state.loaded? MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview]): loadScript(SCRIPT, this.onLoad)
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (!nextProps.math) return false
-    return nextProps.math !== this.state.oldMath
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    this.preview.innerHTML = this.props.math
-    MathJax.Hub.Queue(['Typeset', window.MathJax.Hub, this.preview])
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({oldMath: nextProps.math})
-  }
-
-  render() {
-    return (
-      <div
-        className={this.props.className}
-        id='react-mathjax-preview'
-        style={this.props.style}
-      >
-        <div
-          id='react-mathjax-preview-result'
-          ref={(node) => {this.preview = node}}
-        >
-        </div>
-      </div>
-    )
-  }
+    previewRef.current.innerHTML = sanitizedMath;
+    window.MathJax.Hub.Queue([
+      "Typeset",
+      window.MathJax.Hub,
+      previewRef.current
+    ]);
+  }, [sanitizedMath, loadingState, previewRef]);
+  return (
+    <div className={className} id="react-mathjax-preview" style={style}>
+      {loadingState === "failed" && <span>fail loading mathjax lib</span>}
+      <div id="react-mathjax-preview-result" ref={previewRef}></div>
+    </div>
+  );
 }
+
+MathJaxPreview.propTypes = {
+  config: PropTypes.object,
+  className: PropTypes.string,
+  math: PropTypes.string,
+  style: PropTypes.object
+};
