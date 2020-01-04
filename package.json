@@ -19,11 +19,10 @@
     "test:watch": "npx nwb test-react --server"
   },
   "dependencies": {
-    "dompurify": "^2.0.0",
-    "load-script": "^1.0.0"
+    "dompurify": "^2.0.0"
   },
   "peerDependencies": {
-    "react": "15.x || 16.x"
+    "react": "16.x"
   },
   "devDependencies": {
     "react": "16.12.0",
