@@ -1,4 +1,4 @@
-const airbnb = require('@neutrinojs/airbnb');
+const standard = require('@neutrinojs/standardjs');
 const reactComponents = require('@neutrinojs/react-components');
 const jest = require('@neutrinojs/jest');
 
@@ -7,7 +7,7 @@ module.exports = {
     root: __dirname,
   },
   use: [
-    //airbnb(),
+    standard(),
     reactComponents(),
     jest(),
   ],

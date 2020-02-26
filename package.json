@@ -27,9 +27,9 @@
     "lint": "eslint --cache --format codeframe --ext mjs,jsx,js src test"
   },
   "devDependencies": {
-    "@neutrinojs/airbnb": "^9.1.0",
     "@neutrinojs/jest": "^9.1.0",
     "@neutrinojs/react-components": "^9.1.0",
+    "@neutrinojs/standardjs": "^9.1.0",
     "eslint": "^6",
     "jest": "^25",
     "neutrino": "^9.1.0",

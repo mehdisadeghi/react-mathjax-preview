@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import DOMPurify from "dompurify";
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import DOMPurify from 'dompurify'
 
-import ReactMathjaxPreview from './components/ReactMathjaxPreview';
+import ReactMathjaxPreview from './components/ReactMathjaxPreview'
 
 const mxml = String.raw`
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -56,7 +56,7 @@ $\lim_{x \to \infty} \exp(-x) = 0$
 </semantics>
 </mrow>
 </math>
-`;
+`
 
 const tex = String.raw`
 $$\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$$
@@ -68,8 +68,8 @@ $$\lim_{x \to \infty} \exp(-x) = 0$$
 $$k_{n+1} = n^2 + k_n^2 - k_{n-1}$$
 
 $k_{n+1} = n^2 + k_n^2 - k_{n-1}$
-`;
-const asciimath = "`sum_(i=1)^n i^3=((n(n+1))/2)^2`";
+`
+const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`'
 const math = String.raw`
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
     <menclose notation="circle box">
@@ -79,27 +79,27 @@ const math = String.raw`
 
   $$\lim_{x \to \infty} \exp(-x) = 0$$
 
-  ${asciimath}`;
+  ${asciimath}`
 
-const bad = `<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="document.body.style.backgroundColor = 'red';alert('Im a bunch of arbitrary javascript!!!');">`;
+const bad = '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="document.body.style.backgroundColor = \'red\';alert(\'Im a bunch of arbitrary javascript!!!\');">'
 
 class Demo extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       math: DOMPurify.sanitize(math)
-    };
+    }
 
-    this.renderMath.bind(this);
+    this.renderMath.bind(this)
   }
 
   renderMath = e => {
-    this.setState({ math: DOMPurify.sanitize(this.buffer.value) });
-  };
+    this.setState({ math: DOMPurify.sanitize(this.buffer.value) })
+  }
 
-  render() {
+  render () {
     return (
-      <div style={{ width: "80vw", margin: "auto" }}>
+      <div style={{ width: '80vw', margin: 'auto' }}>
         <h1>react-mathjax-preview</h1>
         <p>
           Enter some TeX, asciimath or MathML in the box below and press the
@@ -108,9 +108,9 @@ class Demo extends Component {
         <textarea
           onChange={this.renderMath}
           defaultValue={math}
-          style={{ width: "100%", height: "150px" }}
+          style={{ width: '100%', height: '150px' }}
           ref={node => {
-            this.buffer = node;
+            this.buffer = node
           }}
         />
         <br />
@@ -127,12 +127,12 @@ class Demo extends Component {
               Asciimath: <code>`...`</code>.
             </li>
           </ul>
-          <input type="button" onClick={this.renderMath} value="Render" />
+          <input type='button' onClick={this.renderMath} value='Render' />
         </div>
-        <ReactMathjaxPreview math={this.state.math} style={{ marginTop: "20px" }} />
+        <ReactMathjaxPreview math={this.state.math} style={{ marginTop: '20px' }} />
       </div>
-    );
+    )
   }
 }
 
-render(<Demo />, document.getElementById('root'));
+render(<Demo />, document.getElementById('root'))

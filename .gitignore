@@ -108,3 +108,5 @@ dist
 
 # Neutrino build directory
 build
+
+*.sublime*
