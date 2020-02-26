@@ -2,32 +2,6 @@
   "name": "react-mathjax-preview",
   "version": "1.0.1",
   "description": "The MathJax React component you were looking for.",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "files": [
-    "css",
-    "es",
-    "lib",
-    "umd"
-  ],
-  "scripts": {
-    "build": "npx nwb build-react-component",
-    "clean": "npx nwb clean-module && npx nwb clean-demo",
-    "start": "npx nwb serve-react-demo",
-    "test": "npx nwb test-react",
-    "test:coverage": "npx nwb test-react --coverage",
-    "test:watch": "npx nwb test-react --server"
-  },
-  "dependencies": {
-    "dompurify": "^2.0.0"
-  },
-  "peerDependencies": {
-    "react": "16.x"
-  },
-  "devDependencies": {
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
-  },
   "author": "Mehdi Sadeghi",
   "homepage": "https://github.com/mehdisadeghi/react-mathjax-preview",
   "license": "MIT",
@@ -39,5 +13,34 @@
     "tex",
     "asciimath",
     "mathml"
-  ]
+  ],
+  "main": "index.js",
+  "peerDependencies": {
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "lint": "eslint --cache --format codeframe --ext mjs,jsx,js src test"
+  },
+  "devDependencies": {
+    "@neutrinojs/airbnb": "^9.1.0",
+    "@neutrinojs/jest": "^9.1.0",
+    "@neutrinojs/react-components": "^9.1.0",
+    "eslint": "^6",
+    "jest": "^25",
+    "neutrino": "^9.1.0",
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16",
+    "webpack": "^4",
+    "webpack-cli": "^3",
+    "webpack-dev-server": "^3"
+  },
+  "dependencies": {
+    "dompurify": "^2.0.8"
+  }
 }

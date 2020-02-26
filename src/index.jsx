@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import DOMPurify from "dompurify";
 
-import Example from "../../src";
+import ReactMathjaxPreview from './components/ReactMathjaxPreview';
 
 const mxml = String.raw`
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -129,10 +129,10 @@ class Demo extends Component {
           </ul>
           <input type="button" onClick={this.renderMath} value="Render" />
         </div>
-        <Example math={this.state.math} style={{ marginTop: "20px" }} />
+        <ReactMathjaxPreview math={this.state.math} style={{ marginTop: "20px" }} />
       </div>
     );
   }
 }
 
-render(<Demo />, document.querySelector("#demo"));
+render(<Demo />, document.getElementById('root'));

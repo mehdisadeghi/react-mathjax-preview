@@ -2,9 +2,9 @@ import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
 
-import Component from 'src/'
+import ReactMathjaxPreview from '../src/components/ReactMathjaxPreview'
 
-describe('Component', () => {
+describe('ReactMathjaxPreview', () => {
   let node
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('Component', () => {
 
   //TODO: test MathJax rendered output
   it('renders MathJax', () => {
-    render(<Component math={String.raw`$\lim_{x \to \infty} \exp(-x) = 0$`}/>, node, () => {
+    render(<ReactMathjaxPreview math={String.raw`$\lim_{x \to \infty} \exp(-x) = 0$`}/>, node, () => {
       expect(node.innerHTML).toContain('react-mathjax-preview-result')
     })
   })
