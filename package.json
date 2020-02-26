@@ -1,6 +1,6 @@
 {
   "name": "react-mathjax-preview",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The MathJax React component you were looking for.",
   "main": "lib/index.js",
   "module": "es/index.js",
