@@ -4,6 +4,9 @@ import DOMPurify from 'dompurify'
 
 import ReactMathjaxPreview from './components/ReactMathjaxPreview'
 
+/*
+ * Sample math
+ *
 const mxml = String.raw`
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <menclose notation="circle box">
@@ -69,6 +72,10 @@ $$k_{n+1} = n^2 + k_n^2 - k_{n-1}$$
 
 $k_{n+1} = n^2 + k_n^2 - k_{n-1}$
 `
+
+const bad = '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="document.body.style.backgroundColor = \'red\';alert(\'Im a bunch of arbitrary javascript!!!\');">'
+*/
+
 const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`'
 const math = String.raw`
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -81,8 +88,6 @@ const math = String.raw`
 
   ${asciimath}`
 
-const bad = '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onload="document.body.style.backgroundColor = \'red\';alert(\'Im a bunch of arbitrary javascript!!!\');">'
-
 class Demo extends Component {
   constructor (props) {
     super(props)
@@ -90,10 +95,10 @@ class Demo extends Component {
       math: DOMPurify.sanitize(math)
     }
 
-    this.renderMath.bind(this)
+    this.handleRenderMath.bind(this)
   }
 
-  renderMath = e => {
+  handleRenderMath = e => {
     this.setState({ math: DOMPurify.sanitize(this.buffer.value) })
   }
 
@@ -106,7 +111,7 @@ class Demo extends Component {
           render button.
         </p>
         <textarea
-          onChange={this.renderMath}
+          onChange={this.handleRenderMath}
           defaultValue={math}
           style={{ width: '100%', height: '150px' }}
           ref={node => {
@@ -127,7 +132,7 @@ class Demo extends Component {
               Asciimath: <code>`...`</code>.
             </li>
           </ul>
-          <input type='button' onClick={this.renderMath} value='Render' />
+          <input type='button' onClick={this.handleRenderMath} value='Render' />
         </div>
         <ReactMathjaxPreview math={this.state.math} style={{ marginTop: '20px' }} />
       </div>
