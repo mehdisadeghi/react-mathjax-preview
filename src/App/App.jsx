@@ -1,9 +1,9 @@
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader'
 import React, { useState } from 'react'
-import './App.css';
-import ReactMathjaxPreview from '../components/ReactMathjaxPreview';
+import './App.css'
+import ReactMathjaxPreview from '../components/ReactMathjaxPreview'
 
-const asciimath = "`sum_(i=1)^n i^3=((n(n+1))/2)^2`";
+const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`'
 const someMath = String.raw`
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
     <menclose notation="circle box">
@@ -47,13 +47,13 @@ const someMath = String.raw`
     </annotation-xml>
   </semantics>
   </mrow>
-  </math>`;
+  </math>`
 
 const App = () => {
-  const [math, setMath] = useState(someMath);
+  const [math, setMath] = useState(someMath)
 
   return (
-    <div style={{ width: "80vw", margin: "auto" }}>
+    <div style={{ width: '80vw', margin: 'auto' }}>
       <h1>react-mathjax-preview</h1>
       <p>
         Enter some TeX, asciimath or MathML in the box below, or mix them all.
@@ -61,10 +61,10 @@ const App = () => {
       <textarea
         defaultValue={someMath}
         onChange={(event) => setMath(event.target.value)}
-        style={{ width: "100%", height: "150px" }}
+        style={{ width: '100%', height: '150px' }}
       />
-      <p>
-        Configured delimiters:
+      <div>
+        <p>Configured delimiters:</p>
         <ul>
           <li>
             TeX, inline mode: <code>\(...\)</code> or <code>$...$</code>
@@ -76,10 +76,10 @@ const App = () => {
             Asciimath: <code>`...`</code>.
           </li>
         </ul>
-      </p>
-      <ReactMathjaxPreview math={math} style={{ marginTop: "20px" }}/>      
+      </div>
+      <ReactMathjaxPreview math={math} style={{ marginTop: '20px' }} />
     </div>
-   )
+  )
 }
 
-export default hot(module)(App);
+export default hot(module)(App)
