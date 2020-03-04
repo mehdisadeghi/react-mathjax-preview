@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@neutrinojs/jest": "^9.1.0",
+    "@neutrinojs/react": "^9.1.0",
     "@neutrinojs/react-components": "^9.1.0",
     "@neutrinojs/standardjs": "^9.1.0",
     "eslint": "^6",
@@ -36,6 +37,7 @@
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16",
+    "react-hot-loader": "^4.12.19",
     "webpack": "^4",
     "webpack-cli": "^3",
     "webpack-dev-server": "^3"
