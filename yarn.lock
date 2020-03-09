@@ -1043,7 +1043,7 @@
     file-loader "^5.0.2"
     url-loader "^3.0.0"
 
-"@neutrinojs/jest@^9.1.0":
+"@neutrinojs/jest@9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@neutrinojs/jest/-/jest-9.1.0.tgz#dd64426c44186ef2dfb9ae46c526beddf7cb3db2"
   integrity sha512-nyIed5MVu1oEdEoZIHGv7dgXX9gCyrtbY4z6VSYrAnNxQp2YAjsHOr8Wf7DuXzLwSmLUMcg8Jbjid1aI+BLfUA==
@@ -1055,7 +1055,7 @@
     eslint-plugin-jest "^23.6.0"
     lodash.omit "^4.5.0"
 
-"@neutrinojs/react-components@^9.1.0":
+"@neutrinojs/react-components@9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@neutrinojs/react-components/-/react-components-9.1.0.tgz#9636c58fc908e53e0461f05099cad01c025ce16d"
   integrity sha512-2728tqoSfJLzhoqHAC/hPBgbb0ixJNoJ1/VsgXB3UBESrq4k39ubLhyNHEhMf2waqbp6KSXFYuO/Mc6X4fp54g==
@@ -1065,7 +1065,7 @@
     deepmerge "^1.5.2"
     webpack-node-externals "^1.7.2"
 
-"@neutrinojs/react@9.1.0", "@neutrinojs/react@^9.1.0":
+"@neutrinojs/react@9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@neutrinojs/react/-/react-9.1.0.tgz#d18be4e285decdb30b484ba4b989e98f1efccb28"
   integrity sha512-5k6nus9PsJ8JKBOOXaUbdNiISyw0bKySCGBTkGiN0MpSjSoOO8de9ANiy20aIRkB3kYTMm29t9zrGje6N4ZGUw==
@@ -1080,7 +1080,7 @@
     eslint-plugin-react "^7.18.0"
     eslint-plugin-react-hooks "^2.3.0"
 
-"@neutrinojs/standardjs@^9.1.0":
+"@neutrinojs/standardjs@9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@neutrinojs/standardjs/-/standardjs-9.1.0.tgz#58afd9d5203ac7f550bfa388f31998fb0e0d6548"
   integrity sha512-Tfzj9Ss37/OfqHoqDtJDs+C1/WgVbLRkde2nLjmDjpF/Ky0qaWGjEMShTQkcYbgcG/u0JNudWA09fagBoCEgFw==
@@ -3254,7 +3254,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6:
+eslint@6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
   integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
@@ -5068,7 +5068,7 @@ jest-worker@^25.1.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^25:
+jest@25.1.0:
   version "25.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-25.1.0.tgz#b85ef1ddba2fdb00d295deebbd13567106d35be9"
   integrity sha512-FV6jEruneBhokkt9MQk0WUFoNTwnF76CLXtwNMfsc0um0TlB/LG2yxUd0KqaFjEJ9laQmVWQWS0sG/t2GsuI0w==
@@ -5708,7 +5708,7 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-neutrino@^9.1.0:
+neutrino@9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/neutrino/-/neutrino-9.1.0.tgz#703863e389dc789cbd60b855e3470281af85117b"
   integrity sha512-cS9IydBpxZeWm4tqZVsJqK6FZD2I9StA0RYbq5mVrt60lhv1vdrfSs3EoTB56McqXbV6pxP6Z547msYsKNNGIQ==
@@ -6490,7 +6490,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -6632,7 +6632,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^16:
+react-dom@16.13.0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.0.tgz#cdde54b48eb9e8a0ca1b3dc9943d9bb409b81866"
   integrity sha512-y09d2c4cG220DzdlFkPTnVvGTszVvNpC73v+AaLGLHbkpy3SSgvYq8x0rNwPJ/Rk/CicTNgk0hbHNw1gMEZAXg==
@@ -6642,7 +6642,7 @@ react-dom@^16:
     prop-types "^15.6.2"
     scheduler "^0.19.0"
 
-react-hot-loader@^4.12.19:
+react-hot-loader@4.12.19:
   version "4.12.19"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.19.tgz#99a1c763352828f404fa51cd887c5e16bb5b74d1"
   integrity sha512-p8AnA4QE2GtrvkdmqnKrEiijtVlqdTIDCHZOwItkI9kW51bt5XnQ/4Anz8giiWf9kqBpEQwsmnChDCAFBRyR/Q==
@@ -6666,7 +6666,7 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react@^16:
+react@16.13.0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.0.tgz#d046eabcdf64e457bbeed1e792e235e1b9934cf7"
   integrity sha512-TSavZz2iSLkq5/oiE7gnFzmURKZMltmi193rm5HEoUDAXpzT9Kzw6oNZnGoai/4+fUnm7FqS5dwgUL34TujcWQ==
@@ -8225,7 +8225,7 @@ webpack-chain@^6.3.0:
     deepmerge "^1.5.2"
     javascript-stringify "^2.0.1"
 
-webpack-cli@^3:
+webpack-cli@3.3.11:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.11.tgz#3bf21889bf597b5d82c38f215135a411edfdc631"
   integrity sha512-dXlfuml7xvAFwYUPsrtQAA9e4DOe58gnzSxhgrO/ZM/gyXTBowrsYeubyN4mqGhYdpXMFNyQ6emjJS9M7OBd4g==
@@ -8253,7 +8253,7 @@ webpack-dev-middleware@^3.7.2:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3:
+webpack-dev-server@3.10.3:
   version "3.10.3"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.10.3.tgz#f35945036813e57ef582c2420ef7b470e14d3af0"
   integrity sha512-e4nWev8YzEVNdOMcNzNeCN947sWJNd43E5XvsJzbAL08kGc2frm1tQ32hTJslRS+H65LCb/AaUCYU7fjHCpDeQ==
@@ -8313,7 +8313,7 @@ webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4:
+webpack@4.41.6:
   version "4.41.6"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.6.tgz#12f2f804bf6542ef166755050d4afbc8f66ba7e1"
   integrity sha512-yxXfV0Zv9WMGRD+QexkZzmGIh54bsvEs+9aRWxnN8erLWEOehAKUTeNBoUbA6HPEZPlRo7KDi2ZcNveoZgK9MA==
