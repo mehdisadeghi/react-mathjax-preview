@@ -25,7 +25,8 @@
   },
   "scripts": {
     "start": "parcel serve index.html",
-    "build": "parcel build --no-minify index.jsx",
+    "build": "parcel build --target main --no-minify index.jsx",
+    "build:demo": "parcel build --target demo --no-minify index.html",
     "test": "jest"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
   "targets": {
     "main": {
       "outputFormat": "esmodule"
-    }
+    },
+    "demo": {}
   }
 }
