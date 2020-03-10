@@ -43,7 +43,6 @@
     "webpack-dev-server": "^3"
   },
   "dependencies": {
-    "@neutrinojs/html-template": "^9.1.0",
     "dompurify": "^2.0.8"
   }
 }
