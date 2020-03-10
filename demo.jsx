@@ -1,7 +1,6 @@
-import { hot } from 'react-hot-loader'
 import React, { useState } from 'react'
-import './App.css'
-import ReactMathjaxPreview from '../components/ReactMathjaxPreview'
+import ReactDOM from 'react-dom'
+import ReactMathjaxPreview from './index.jsx'
 
 const asciimath = '`sum_(i=1)^n i^3=((n(n+1))/2)^2`'
 const someMath = String.raw`
@@ -82,4 +81,4 @@ const App = () => {
   )
 }
 
-export default hot(module)(App)
+ReactDOM.render(<App />, document.getElementById('root'))

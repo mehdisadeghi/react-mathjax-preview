@@ -1,6 +1,6 @@
 {
   "name": "react-mathjax-preview",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The MathJax React component you were looking for.",
   "author": "Mehdi Sadeghi",
   "homepage": "https://github.com/mehdisadeghi/react-mathjax-preview",
@@ -14,33 +14,27 @@
     "asciimath",
     "mathml"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.*"
+  ],
   "peerDependencies": {
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
-    "test": "jest",
-    "lint": "eslint --cache --format codeframe --ext mjs,jsx,js src test"
+    "start": "parcel serve demo.html",
+    "build": "parcel build index.jsx",
+    "test": "jest"
   },
   "devDependencies": {
-    "@neutrinojs/jest": "^9.1.0",
-    "@neutrinojs/react": "^9.1.0",
-    "@neutrinojs/react-components": "^9.1.0",
-    "@neutrinojs/standardjs": "^9.1.0",
-    "eslint": "^6",
+    "expect": "^25.1.0",
     "jest": "^25",
-    "neutrino": "^9.1.0",
+    "parcel": "^1.12.4",
     "prop-types": "^15",
     "react": "^16",
-    "react-dom": "^16",
-    "react-hot-loader": "^4.12.19",
-    "webpack": "^4",
-    "webpack-cli": "^3",
-    "webpack-dev-server": "^3"
+    "react-dom": "^16"
   },
   "dependencies": {
     "dompurify": "^2.0.8"
