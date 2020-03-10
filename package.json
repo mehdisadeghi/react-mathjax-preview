@@ -24,8 +24,8 @@
     "react-dom": "^16"
   },
   "scripts": {
-    "start": "parcel serve --no-cache demo.html",
-    "build": "parcel build --no-cache --no-minify index.jsx",
+    "start": "parcel serve index.html",
+    "build": "parcel build --no-minify index.jsx",
     "test": "jest"
   },
   "devDependencies": {
