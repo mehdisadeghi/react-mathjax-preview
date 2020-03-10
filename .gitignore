@@ -110,3 +110,4 @@ dist
 build
 
 *.sublime*
+.parcel-cache

@@ -24,19 +24,24 @@
     "react-dom": "^16"
   },
   "scripts": {
-    "start": "parcel serve demo.html",
-    "build": "parcel build index.jsx",
+    "start": "parcel serve --no-cache demo.html",
+    "build": "parcel build --no-cache --no-minify index.jsx",
     "test": "jest"
   },
   "devDependencies": {
     "expect": "^25.1.0",
     "jest": "^25",
-    "parcel": "^1.12.4",
+    "parcel": "^2.0.0-alpha.3.2",
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16"
   },
   "dependencies": {
     "dompurify": "^2.0.8"
+  },
+  "targets": {
+    "main": {
+      "outputFormat": "esmodule"
+    }
   }
 }
