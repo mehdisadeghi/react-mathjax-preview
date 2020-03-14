@@ -51,7 +51,7 @@ const MathJaxPreview = ({ config, className, math, style }) => {
       mathjaxScriptTag.removeEventListener('load', onloadHandler)
       mathjaxScriptTag.removeEventListener('error', onloadHandler)
     }
-  }, [setLoadingState, config])
+  }, [setLoadingState, config, baseConfig])
 
   useEffect(() => {
     if (loadingState !== 'loaded') {
