@@ -16,7 +16,7 @@ const baseConfig = {
   skipStartupTypeset: true
 }
 
-export default function MathJaxPreview ({ config, className, math, style }) {
+const MathJaxPreview = ({ config, className, math, style }) => {
   const sanitizedMath = DOMPurify.sanitize(math)
   const previewRef = useRef()
   const [loadingState, setLoadingState] = useState('loading')
@@ -51,7 +51,7 @@ export default function MathJaxPreview ({ config, className, math, style }) {
       mathjaxScriptTag.removeEventListener('load', onloadHandler)
       mathjaxScriptTag.removeEventListener('error', onloadHandler)
     }
-  }, [setLoadingState, config])
+  }, [setLoadingState, config, baseConfig])
 
   useEffect(() => {
     if (loadingState !== 'loaded') {
@@ -78,3 +78,5 @@ MathJaxPreview.propTypes = {
   math: PropTypes.string,
   style: PropTypes.object
 }
+
+export default MathJaxPreview

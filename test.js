@@ -2,7 +2,7 @@ import expect from 'expect'
 import React from 'react'
 import { render, unmountComponentAtNode } from 'react-dom'
 
-import ReactMathjaxPreview from '../src/components/ReactMathjaxPreview'
+import ReactMathjaxPreview from './index.jsx'
 
 describe('ReactMathjaxPreview', () => {
   let node
