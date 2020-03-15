@@ -24,7 +24,7 @@
     "react-dom": "^16"
   },
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "parcel serve -p 3000 index.html",
     "build": "parcel build --target main --no-minify index.jsx",
     "build:demo": "parcel build --target demo --no-minify index.html",
     "test": "jest"

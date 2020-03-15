@@ -9,7 +9,7 @@
 Install `react-mathjax-preview` as a dependency:
 
 ```
-npm install react-mathjax-preview
+yarn install react-mathjax-preview
 ```
 
 ## Usage
@@ -44,12 +44,15 @@ class Demo extends Component {
 }
 ```
 
-See [demo](./demo/src/index.js) for a complete example. You can also play with the demo:
+## Development
+Clone the repo and run yarn commands available in the `package.json` file.
 
 ```
-git clone https://github.com/mehdisadeghi/react-mathjax-preview && cd react-mathjax-preview
-npm install
-npm run start
+$ git clone https://github.com/mehdisadeghi/react-mathjax-preview && cd react-mathjax-preview
+$ yarn install // install dependencies
+$ yarn start // start the development server which serves the demo page
+$ yarn build // make a production build inside the dist folder
+$ yarn build:demo // make a demo build inside the dist folder
 ```
 
 And browse to [localhost:3000](http://localhost:3000).
