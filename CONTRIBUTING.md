@@ -4,22 +4,22 @@
 
 ## Installation
 
-- Running `yarn` in the components's root directory will install everything you need for development.
+- Running `yarn install` in the components's root directory will install everything you need for development.
 
-## Demo Development Server
+## Development
 
 - `yarn start` will run a development server with the component's demo app at [http://localhost:3000](http://localhost:3000) with hot module reloading.
 
-## Running Tests
+- `yarn test` runs the tests with `jest`.
 
-- `yarn test` will run the tests once.
+- `yarn build` builds the component for publishing to npm in the `dist` folder.
 
-- `yarn test:coverage` will run the tests and produce a coverage report in `coverage/`.
+- `yarn build:demo` builds the demo app in the `dist` folder.
 
-- `yarn test:watch` will run the tests on every change.
+## Packaging
+For packaging and transforms `parcel` and `bable` have been used. The `.babelrc`
+is there because of `jest`, otherwise the default `parcel` configs would work build
+the react project properly.
 
-## Building
-
-- `yarn build` will build the component for publishing to npm and also bundle the demo app.
-
-- `yarn clean` will delete built resources.
+Initially I had used nwb and later neutrinojs, however they were unnecessary for this extremely small project, which is basically one single component. So, using
+`parcel` and removing extra folders simplified everything a great deal. 
