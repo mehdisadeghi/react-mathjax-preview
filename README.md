@@ -9,7 +9,7 @@
 Install `react-mathjax-preview` as a dependency:
 
 ```
-yarn install react-mathjax-preview
+yarn add react-mathjax-preview
 ```
 
 ## Usage
