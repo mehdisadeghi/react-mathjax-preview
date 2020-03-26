@@ -2,9 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import DOMPurify from 'dompurify'
 
-const SCRIPT_URL =
-  'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
-
 const baseConfig = {
   showMathMenu: true,
   tex2jax: {
@@ -16,19 +13,19 @@ const baseConfig = {
   skipStartupTypeset: true
 }
 
-const MathJaxPreview = ({ config, className, math, style }) => {
+const MathJaxPreview = ({ script, config, className, math, style }) => {
   const sanitizedMath = DOMPurify.sanitize(math)
   const previewRef = useRef()
   const [loadingState, setLoadingState] = useState('loading')
 
   useEffect(() => {
     let mathjaxScriptTag = document.querySelector(
-      `script[src="${SCRIPT_URL}"]`
+      `script[src="${script}"]`
     )
     if (!mathjaxScriptTag) {
       mathjaxScriptTag = document.createElement('script')
       mathjaxScriptTag.async = true
-      mathjaxScriptTag.src = SCRIPT_URL
+      mathjaxScriptTag.src = script
 
       for (const [k, v] of Object.entries(config || {})) {
         mathjaxScriptTag.setAttribute(k, v)
@@ -73,10 +70,15 @@ const MathJaxPreview = ({ config, className, math, style }) => {
 }
 
 MathJaxPreview.propTypes = {
+  script: PropTypes.string,
   config: PropTypes.object,
   className: PropTypes.string,
   math: PropTypes.string,
   style: PropTypes.object
+}
+
+MathJaxPreview.defaultProps = {
+  script: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
 }
 
 export default MathJaxPreview
