@@ -44,9 +44,7 @@
     "dompurify": "^2.0.8"
   },
   "targets": {
-    "main": {
-      "outputFormat": "esmodule"
-    },
+    "main": {},
     "demo": {}
   }
 }
