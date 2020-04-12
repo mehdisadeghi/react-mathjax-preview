@@ -16,7 +16,7 @@ const baseConfig = {
 const MathJaxPreview = ({ script, config, className, math, style }) => {
   const sanitizedMath = DOMPurify.sanitize(math)
   const previewRef = useRef()
-  const [loadingState, setLoadingState] = useState('loading')
+  const [loadingState, setLoadingState] = useState(window.MathJax ? 'loaded' : 'loading')
 
   useEffect(() => {
     let mathjaxScriptTag = document.querySelector(
