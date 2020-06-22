@@ -66,7 +66,7 @@ const MathJaxPreview = ({ script, config, className, math, style, id }) => {
   return (
     <div className={className} id={!isNil(id) ? id : null} style={style}>
       {loadingState === 'failed' && <span>fail loading mathjax lib</span>}
-      <div id={`!isNil(id) ? ${id}-result` : null} ref={previewRef} />
+      <div className='react-mathjax-preview-result' ref={previewRef} />
     </div>
   )
 }
