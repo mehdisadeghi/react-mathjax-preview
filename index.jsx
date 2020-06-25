@@ -79,7 +79,7 @@ MathJaxPreview.propTypes = {
 }
 
 MathJaxPreview.defaultProps = {
-  script: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
+  script: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML',
   id: 'react-mathjax-preview'
 }
 
