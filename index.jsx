@@ -13,7 +13,7 @@ const baseConfig = {
   skipStartupTypeset: true
 }
 
-const MathJaxPreview = ({ script, config, className, math, style }) => {
+const MathJaxPreview = ({ script, config, className, math, style, id }) => {
   const sanitizedMath = DOMPurify.sanitize(math)
   const previewRef = useRef()
   const [loadingState, setLoadingState] = useState(window.MathJax ? 'loaded' : 'loading')
@@ -62,9 +62,9 @@ const MathJaxPreview = ({ script, config, className, math, style }) => {
     ])
   }, [sanitizedMath, loadingState, previewRef])
   return (
-    <div className={className} id='react-mathjax-preview' style={style}>
+    <div className={className} id={id} style={style}>
       {loadingState === 'failed' && <span>fail loading mathjax lib</span>}
-      <div id='react-mathjax-preview-result' ref={previewRef} />
+      <div className='react-mathjax-preview-result' ref={previewRef} />
     </div>
   )
 }
@@ -74,11 +74,13 @@ MathJaxPreview.propTypes = {
   config: PropTypes.object,
   className: PropTypes.string,
   math: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  id: PropTypes.string
 }
 
 MathJaxPreview.defaultProps = {
-  script: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML'
+  script: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML',
+  id: 'react-mathjax-preview'
 }
 
 export default MathJaxPreview
