@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import DOMPurify from "dompurify";
+import { Transition } from "react-transition-group";
 
 const baseConfig = {
   showMathMenu: true,
@@ -13,10 +14,18 @@ const baseConfig = {
   skipStartupTypeset: true,
 };
 
-const MathJaxPreview = ({ script, config, className, math, style, id }) => {
+const MathJaxPreview = ({
+  script,
+  config,
+  className,
+  math,
+  id,
+  style,
+  msDelayDisplay,
+}) => {
   const sanitizedMath = DOMPurify.sanitize(math);
   const previewRef = useRef();
-  const [visibility, setVisibility] = useState("hidden"); //svgpubs@github hopes to prevent render flicker
+  const [display, setDisplay] = useState("none"); //prevent display during processing
   const [loadingState, setLoadingState] = useState(
     window.MathJax ? "loaded" : "loading"
   );
@@ -56,23 +65,36 @@ const MathJaxPreview = ({ script, config, className, math, style, id }) => {
       return;
     }
     previewRef.current.innerHTML = sanitizedMath;
+    debugger;
     window.MathJax.Hub.Queue([
       "Typeset",
       window.MathJax.Hub,
       previewRef.current,
     ]);
+
+    //delay display of div
+    var msDelay;
+    if (
+      msDelayDisplay &&
+      !isNaN(+msDelayDisplay) &&
+      +msDelayDisplay >= 0 &&
+      +msDelayDisplay < 10000
+    ) {
+      msDelay = +msDelayDisplay;
+    } else {
+      msDelay = 300;
+    }
     setTimeout(() => {
-      setVisibility("visible");
-    }, 300); //svgpubs@github hopes to prevent render flicker
+      setDisplay("inline");
+    }, msDelay); //svgpubs@github hopes to prevent render flicker
+    return () => {
+      setDisplay("none");
+    };
   }, [sanitizedMath, loadingState, previewRef]);
   return (
-    <div className={className} id={id} style={style}>
+    <div className={className} id={id} style={{ display: display, ...style }}>
       {loadingState === "failed" && <span>fail loading mathjax lib</span>}
-      <div
-        className="react-mathjax-preview-result"
-        ref={previewRef}
-        style={{ visibility: visibility }} // hide for some time until it is probalby done
-      />
+      <div className="react-mathjax-preview-result" ref={previewRef} />
     </div>
   );
 };
