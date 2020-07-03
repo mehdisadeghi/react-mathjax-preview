@@ -74,7 +74,7 @@ const MathJaxPreview = ({
     //delay display of div
     var msDelay;
     if ( //msDelayDisplay prop is a reasonable number of ms
-      msDelayDisplay == null &&
+      msDelayDisplay !== null &&
       !isNaN(+msDelayDisplay) &&
       +msDelayDisplay >= 0 &&
       +msDelayDisplay < 10000
