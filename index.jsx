@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import DOMPurify from "dompurify";
-import { Transition } from "react-transition-group";
 
 const baseConfig = {
   showMathMenu: true,
@@ -74,7 +73,7 @@ const MathJaxPreview = ({
 
     //delay display of div
     var msDelay;
-    if (
+    if ( //msDelayDisplay prop is a reasonable number of ms
       msDelayDisplay &&
       !isNaN(+msDelayDisplay) &&
       +msDelayDisplay >= 0 &&
@@ -82,11 +81,11 @@ const MathJaxPreview = ({
     ) {
       msDelay = +msDelayDisplay;
     } else {
-      msDelay = 300;
+      msDelay = 300; // default 300ms delay
     }
     setTimeout(() => {
-      setDisplay("inline");
-    }, msDelay); //svgpubs@github hopes to prevent render flicker
+      setDisplay("inline"); //display div after delay, hopefully typeset has finished
+    }, msDelay); 
     return () => {
       setDisplay("none");
     };
