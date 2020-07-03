@@ -20,7 +20,7 @@ const MathJaxPreview = ({
   math,
   id,
   style,
-  msDelayDisplay,
+  msDelayDisplay, //milliseconds to delay display of div, 300 is default
 }) => {
   const sanitizedMath = DOMPurify.sanitize(math);
   const previewRef = useRef();
