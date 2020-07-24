@@ -52,7 +52,7 @@ Wrapper classname
 ### id
 Wrapper id
 
-### id
+### style
 Style object
 
 ### math
