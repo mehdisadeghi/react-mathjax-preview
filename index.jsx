@@ -78,7 +78,8 @@ MathJaxPreview.propTypes = {
   className: PropTypes.string,
   math: PropTypes.string,
   style: PropTypes.object,
-  id: PropTypes.string
+  id: PropTypes.string,
+  onLoad: PropTypes.func,
 }
 
 MathJaxPreview.defaultProps = {
