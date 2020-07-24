@@ -13,7 +13,7 @@ const baseConfig = {
   skipStartupTypeset: true
 }
 
-const MathJaxPreview = ({ script, config, className, math, style, id }) => {
+const MathJaxPreview = React.forwardRef(({ script, config, className, math, style, id, onLoad }, ref) => {
   const sanitizedMath = DOMPurify.sanitize(math)
   const previewRef = useRef()
   const [loadingState, setLoadingState] = useState(window.MathJax ? 'loaded' : 'loading')
@@ -36,6 +36,7 @@ const MathJaxPreview = ({ script, config, className, math, style, id }) => {
     const onloadHandler = () => {
       setLoadingState('loaded')
       window.MathJax.Hub.Config({ ...baseConfig, ...config })
+      onLoad && onLoad();
     }
     const onerrorHandler = () => {
       setLoadingState('failed')
@@ -62,12 +63,12 @@ const MathJaxPreview = ({ script, config, className, math, style, id }) => {
     ])
   }, [sanitizedMath, loadingState, previewRef])
   return (
-    <div className={className} id={id} style={style}>
+    <div className={className} id={id} style={style} ref={ref}>
       {loadingState === 'failed' && <span>fail loading mathjax lib</span>}
       <div className='react-mathjax-preview-result' ref={previewRef} />
     </div>
   )
-}
+});
 
 MathJaxPreview.propTypes = {
   script: PropTypes.string,
