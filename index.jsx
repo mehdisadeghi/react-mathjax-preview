@@ -13,7 +13,7 @@ const baseConfig = {
   skipStartupTypeset: true,
 };
 
-const MathJaxPreview = ({
+const MathJaxPreview = React.forwardRef(({
   script,
   config,
   className,
@@ -21,7 +21,9 @@ const MathJaxPreview = ({
   id,
   style,
   msDelayDisplay, //milliseconds to delay display of div, 300 is default
-}) => {
+  onLoad,
+  onError,
+}, ref) => {
   const sanitizedMath = DOMPurify.sanitize(math);
   const previewRef = useRef();
   const [display, setDisplay] = useState("none"); //prevent display during processing
@@ -45,9 +47,11 @@ const MathJaxPreview = ({
     const onloadHandler = () => {
       setLoadingState("loaded");
       window.MathJax.Hub.Config({ ...baseConfig, ...config });
+      onLoad && onLoad();
     };
     const onerrorHandler = () => {
       setLoadingState("failed");
+      onError && onError();
     };
 
     mathjaxScriptTag.addEventListener("load", onloadHandler);
@@ -85,18 +89,21 @@ const MathJaxPreview = ({
     }
     setTimeout(() => {
       setDisplay("inline"); //display div after delay, hopefully typeset has finished
-    }, msDelay); 
+    }, msDelay);
+
     return () => {
       setDisplay("none");
     };
   }, [sanitizedMath, loadingState, previewRef]);
   return (
-    <div className={className} id={id} style={{ display: display, ...style }}>
+    <div className={className} id={id} style={{ display: display, ...style }} ref={ref}>
       {loadingState === "failed" && <span>fail loading mathjax lib</span>}
       <div className="react-mathjax-preview-result" ref={previewRef} />
     </div>
   );
-};
+});
+
+MathJaxPreview.displayName = 'MathJaxPreview';
 
 MathJaxPreview.propTypes = {
   script: PropTypes.string,
@@ -105,6 +112,8 @@ MathJaxPreview.propTypes = {
   math: PropTypes.string,
   style: PropTypes.object,
   id: PropTypes.string,
+  onLoad: PropTypes.func,
+  onError: PropTypes.func,
 };
 
 MathJaxPreview.defaultProps = {

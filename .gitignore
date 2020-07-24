@@ -105,6 +105,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+.history
 
 # Neutrino build directory
 build

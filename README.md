@@ -44,6 +44,33 @@ class Demo extends Component {
 }
 ```
 
+## Props
+
+### className
+Wrapper classname
+
+### id
+Wrapper id
+
+### style
+Style object
+
+### math
+MathJax content
+
+### msDelayDisplay
+Milliseconds to delay display of div, 300 is default
+
+### config (Object)
+MathJax configuration
+
+### onLoad (Function)
+Triggered after MathJax script finishes loading before children are allowed to render.
+
+### onError (Function)
+Triggered when any Math Processing Error occurs
+
+
 ## Development
 Clone the repo and run yarn commands available in the `package.json` file.
 
