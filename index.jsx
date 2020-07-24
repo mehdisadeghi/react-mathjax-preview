@@ -70,6 +70,8 @@ const MathJaxPreview = React.forwardRef(({ script, config, className, math, styl
   )
 });
 
+MathJaxPreview.displayName = 'MathJaxPreview';
+
 MathJaxPreview.propTypes = {
   script: PropTypes.string,
   config: PropTypes.object,
