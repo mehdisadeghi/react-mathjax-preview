@@ -68,7 +68,6 @@ const MathJaxPreview = React.forwardRef(({
       return;
     }
     previewRef.current.innerHTML = sanitizedMath;
-    debugger;
     window.MathJax.Hub.Queue([
       "Typeset",
       window.MathJax.Hub,
