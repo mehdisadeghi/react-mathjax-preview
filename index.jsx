@@ -21,6 +21,7 @@ const MathJaxPreview = React.forwardRef(({
   id,
   style,
   msDelayDisplay, //milliseconds to delay display of div, 300 is default
+  onDisplay,
   onLoad,
   onError,
 }, ref) => {
@@ -88,6 +89,7 @@ const MathJaxPreview = React.forwardRef(({
     }
     setTimeout(() => {
       setDisplay("inline"); //display div after delay, hopefully typeset has finished
+      onDisplay && onDisplay();
     }, msDelay);
 
     return () => {
@@ -113,6 +115,7 @@ MathJaxPreview.propTypes = {
   id: PropTypes.string,
   onLoad: PropTypes.func,
   onError: PropTypes.func,
+  onDisplay: PropTypes.func,
 };
 
 MathJaxPreview.defaultProps = {

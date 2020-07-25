@@ -61,6 +61,9 @@ MathJax content
 ### msDelayDisplay
 Milliseconds to delay display of div, 300 is default
 
+### onDisplay (Function)
+display div after delay, hopefully typeset has finished
+
 ### config (Object)
 MathJax configuration
 
@@ -69,7 +72,6 @@ Triggered after MathJax script finishes loading before children are allowed to r
 
 ### onError (Function)
 Triggered when any Math Processing Error occurs
-
 
 ## Development
 Clone the repo and run yarn commands available in the `package.json` file.
