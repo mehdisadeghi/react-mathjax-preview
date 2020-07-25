@@ -62,7 +62,7 @@ MathJax content
 Milliseconds to delay display of div, 300 is default
 
 ### onDisplay (Function)
-display div after delay, hopefully typeset has finished
+Triggered after delay set in `msDelayDisplay` and div is shown, hopefully typeset has finished
 
 ### config (Object)
 MathJax configuration
