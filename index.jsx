@@ -87,13 +87,14 @@ const MathJaxPreview = React.forwardRef(({
     } else {
       msDelay = 300; // default 300ms delay
     }
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setDisplay("inline"); //display div after delay, hopefully typeset has finished
       onDisplay && onDisplay();
     }, msDelay);
 
     return () => {
       setDisplay("none");
+      clearTimeout(timeout);
     };
   }, [sanitizedMath, loadingState, previewRef]);
   return (
