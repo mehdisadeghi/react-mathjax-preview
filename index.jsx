@@ -21,6 +21,7 @@ const MathJaxPreview = React.forwardRef(({
   id,
   style,
   msDelayDisplay, //milliseconds to delay display of div, 300 is default
+  onDisplay,
   onLoad,
   onError,
 }, ref) => {
@@ -68,7 +69,6 @@ const MathJaxPreview = React.forwardRef(({
       return;
     }
     previewRef.current.innerHTML = sanitizedMath;
-    debugger;
     window.MathJax.Hub.Queue([
       "Typeset",
       window.MathJax.Hub,
@@ -87,12 +87,14 @@ const MathJaxPreview = React.forwardRef(({
     } else {
       msDelay = 300; // default 300ms delay
     }
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setDisplay("inline"); //display div after delay, hopefully typeset has finished
+      onDisplay && onDisplay();
     }, msDelay);
 
     return () => {
       setDisplay("none");
+      clearTimeout(timeout);
     };
   }, [sanitizedMath, loadingState, previewRef]);
   return (
@@ -114,6 +116,7 @@ MathJaxPreview.propTypes = {
   id: PropTypes.string,
   onLoad: PropTypes.func,
   onError: PropTypes.func,
+  onDisplay: PropTypes.func,
 };
 
 MathJaxPreview.defaultProps = {
