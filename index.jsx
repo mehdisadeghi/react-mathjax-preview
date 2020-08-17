@@ -118,6 +118,7 @@ MathJaxPreview.propTypes = {
   onLoad: PropTypes.func,
   onError: PropTypes.func,
   onDisplay: PropTypes.func,
+  sanitizeOptions: PropTypes.object,
 };
 
 MathJaxPreview.defaultProps = {
