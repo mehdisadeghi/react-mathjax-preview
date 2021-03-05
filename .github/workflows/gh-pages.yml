@@ -19,7 +19,7 @@ jobs:
         node-version: '14'
 
     - run: yarn install
-    - run: yarn run parcel build --target demo --no-optimize index.html --dist-dir dist/demo
+    - run: yarn run parcel build --target demo --no-optimize index.html --dist-dir dist/demo --public-url https://mehdisadeghi.github.io/react-mathjax-preview
     - run: touch dist/demo/.nojekyll
 
     - name: Deploy page
