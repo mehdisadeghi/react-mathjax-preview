@@ -25,14 +25,18 @@
   },
   "scripts": {
     "start": "parcel serve -p 3000 index.html",
-    "build": "parcel build --target main --no-minify index.jsx",
-    "build:demo": "parcel build --target demo --no-minify index.html",
+    "build": "parcel build --target main --no-optimize index.jsx",
+    "build:demo": "parcel build --target demo --no-optimize index.html --dist-dir dist/demo",
     "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
+    "@parcel/optimizer-htmlnano": "2.0.0-nightly.617",
+    "@parcel/packager-html": "2.0.0-nightly.617",
+    "@parcel/transformer-html": "2.0.0-nightly.617",
+    "@parcel/transformer-posthtml": "2.0.0-nightly.617",
     "expect": "^25.1.0",
     "jest": "^25",
     "parcel": "^2.0.0-beta.1",
