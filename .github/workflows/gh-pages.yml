@@ -20,9 +20,10 @@ jobs:
 
     - run: yarn install
     - run: yarn run parcel build --target demo --no-optimize index.html --dist-dir dist/demo
+    - run: touch dist/demo/.nojekyll
 
     - name: Deploy page
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist/demo
+        branch: gh-pages
+        folder: dist/demo
