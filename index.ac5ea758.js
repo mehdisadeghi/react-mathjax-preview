@@ -7932,7 +7932,7 @@
     skipStartupTypeset: true
   };
   var $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview = /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].forwardRef(function (_ref, ref) {
-    var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError;
+    var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, wrapperTag = _ref.wrapperTag, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError;
     var sanitizedMath = $56a45a46de4d736abecd6ab4e593ed10$var$_dompurify["default"].sanitize(math);
     var previewRef = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useRef)();
     var _useState = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useState)("none"), _useState2 = $56a45a46de4d736abecd6ab4e593ed10$var$_slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
@@ -7992,17 +7992,17 @@
       };
     }, [sanitizedMath, loadingState, previewRef]);
     return (
-      /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement("div", {
+      /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement(wrapperTag, {
         className: className,
         id: id,
         style: $56a45a46de4d736abecd6ab4e593ed10$var$_objectSpread({
           display: display
         }, style),
         ref: ref
-      }, loadingState === "failed" && /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement("span", null, "fail loading mathjax lib"), /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement("div", {
+      }, /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement($56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].Fragment, null, loadingState === "failed" && /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement("span", null, "fail loading mathjax lib"), /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].createElement(wrapperTag, {
         className: "react-mathjax-preview-result",
         ref: previewRef
-      }))
+      })))
     );
   });
   $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview.displayName = 'MathJaxPreview';
@@ -8012,6 +8012,7 @@
     className: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].string,
     math: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].string,
     style: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].object,
+    wrapperTag: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].string,
     id: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].string,
     onLoad: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func,
     onError: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func,
@@ -8019,7 +8020,8 @@
   };
   $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview.defaultProps = {
     script: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
-    id: "react-mathjax-preview"
+    id: "react-mathjax-preview",
+    wrapperTag: "div"
   };
   var $56a45a46de4d736abecd6ab4e593ed10$var$_default = $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview;
   $56a45a46de4d736abecd6ab4e593ed10$export$default = $56a45a46de4d736abecd6ab4e593ed10$var$_default;
@@ -8157,4 +8159,4 @@
   $f639a182e2c8d3d4d1cd6b0496be58c6$var$_reactDom["default"].render(/*#__PURE__*/$f639a182e2c8d3d4d1cd6b0496be58c6$var$_react["default"].createElement($f639a182e2c8d3d4d1cd6b0496be58c6$var$App, null), document.getElementById('root'));
 })();
 
-//# sourceMappingURL=index.56cb3b82.js.map
+//# sourceMappingURL=index.ac5ea758.js.map
