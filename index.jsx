@@ -26,7 +26,10 @@ const MathJaxPreview = React.forwardRef(({
   onLoad,
   onError,
 }, ref) => {
-  const sanitizedMath = DOMPurify.sanitize(math);
+  const sanitizedMath = DOMPurify.sanitize(math, {
+    USE_PROFILES: { mathMl: true },
+    ADD_ATTR: ['columnalign'],
+  });
   const previewRef = useRef();
   const [display, setDisplay] = useState("none"); //prevent display during processing
   const [loadingState, setLoadingState] = useState(
