@@ -13,6 +13,10 @@ const baseConfig = {
   skipStartupTypeset: true,
 };
 
+const defaultSanitizeOptions = {
+  USE_PROFILES: {mathMl: true}
+}
+
 const MathJaxPreview = React.forwardRef(({
   script,
   config,
@@ -25,8 +29,9 @@ const MathJaxPreview = React.forwardRef(({
   onDisplay,
   onLoad,
   onError,
+  sanitizeOptions
 }, ref) => {
-  const sanitizedMath = DOMPurify.sanitize(math);
+  const sanitizedMath = DOMPurify.sanitize(math, {...defaultSanitizeOptions, ...sanitizeOptions});
   const previewRef = useRef();
   const [display, setDisplay] = useState("none"); //prevent display during processing
   const [loadingState, setLoadingState] = useState(
@@ -124,14 +129,14 @@ MathJaxPreview.propTypes = {
   id: PropTypes.string,
   onLoad: PropTypes.func,
   onError: PropTypes.func,
-  onDisplay: PropTypes.func,
+  onDisplay: PropTypes.func
 };
 
 MathJaxPreview.defaultProps = {
   script:
     "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
   id: "react-mathjax-preview",
-  wrapperTag: "div",
+  wrapperTag: "div"
 };
 
 export default MathJaxPreview;
