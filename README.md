@@ -55,6 +55,9 @@ Wrapper id
 ### style
 Style object
 
+### wrapperTag
+Wrapper tag, `"div"` is default
+
 ### math
 MathJax content
 

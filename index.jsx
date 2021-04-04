@@ -20,6 +20,7 @@ const MathJaxPreview = React.forwardRef(({
   math,
   id,
   style,
+  wrapperTag,
   msDelayDisplay, //milliseconds to delay display of div, 300 is default
   onDisplay,
   onLoad,
@@ -98,11 +99,17 @@ const MathJaxPreview = React.forwardRef(({
       clearTimeout(timeout);
     };
   }, [sanitizedMath, loadingState, previewRef]);
-  return (
-    <div className={className} id={id} style={{ display: display, ...style }} ref={ref}>
+
+  return React.createElement(
+    wrapperTag,
+    { className, id, style: { display, ...style }, ref },
+    <>
       {loadingState === "failed" && <span>fail loading mathjax lib</span>}
-      <div className="react-mathjax-preview-result" ref={previewRef} />
-    </div>
+      {React.createElement(wrapperTag, {
+        className: "react-mathjax-preview-result",
+        ref: previewRef,
+      })}
+    </>
   );
 });
 
@@ -114,6 +121,7 @@ MathJaxPreview.propTypes = {
   className: PropTypes.string,
   math: PropTypes.string,
   style: PropTypes.object,
+  wrapperTag: PropTypes.string,
   id: PropTypes.string,
   onLoad: PropTypes.func,
   onError: PropTypes.func,
@@ -126,6 +134,7 @@ MathJaxPreview.defaultProps = {
     "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
   id: "react-mathjax-preview",
   sanitizeOptions: {},
+  wrapperTag: "div",
 };
 
 export default MathJaxPreview;
