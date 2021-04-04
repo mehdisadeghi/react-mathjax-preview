@@ -76,6 +76,9 @@ Triggered after MathJax script finishes loading before children are allowed to r
 ### onError (Function)
 Triggered when any Math Processing Error occurs
 
+### sanitizeOptions
+DOMPurify configuration object (optional). See https://github.com/cure53/DOMPurify#can-i-configure-dompurify
+
 ## Development
 Clone the repo and run yarn commands available in the `package.json` file.
 

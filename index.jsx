@@ -13,6 +13,11 @@ const baseConfig = {
   skipStartupTypeset: true,
 };
 
+const defaultSanitizeOptions = {
+  USE_PROFILES: {mathMl: true},
+  ADD_ATTR: ['columnalign'],
+}
+
 const MathJaxPreview = React.forwardRef(({
   script,
   config,
@@ -25,11 +30,9 @@ const MathJaxPreview = React.forwardRef(({
   onDisplay,
   onLoad,
   onError,
+  sanitizeOptions,
 }, ref) => {
-  const sanitizedMath = DOMPurify.sanitize(math, {
-    USE_PROFILES: { mathMl: true },
-    ADD_ATTR: ['columnalign'],
-  });
+  const sanitizedMath = DOMPurify.sanitize(math, {...defaultSanitizeOptions, ...sanitizeOptions});
   const previewRef = useRef();
   const [display, setDisplay] = useState("none"); //prevent display during processing
   const [loadingState, setLoadingState] = useState(
@@ -128,12 +131,14 @@ MathJaxPreview.propTypes = {
   onLoad: PropTypes.func,
   onError: PropTypes.func,
   onDisplay: PropTypes.func,
+  sanitizeOptions: PropTypes.object,
 };
 
 MathJaxPreview.defaultProps = {
   script:
     "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
   id: "react-mathjax-preview",
+  sanitizeOptions: {},
   wrapperTag: "div",
 };
 
