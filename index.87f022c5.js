@@ -7836,47 +7836,6 @@
     }
     return newObj;
   }
-  function $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-    return keys;
-  }
-  function $56a45a46de4d736abecd6ab4e593ed10$var$_objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      if (i % 2) {
-        $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(Object(source), true).forEach(function (key) {
-          $56a45a46de4d736abecd6ab4e593ed10$var$_defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-    return target;
-  }
-  function $56a45a46de4d736abecd6ab4e593ed10$var$_defineProperty(obj, key, value) {
-    if ((key in obj)) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  }
   function $56a45a46de4d736abecd6ab4e593ed10$var$_slicedToArray(arr, i) {
     return $56a45a46de4d736abecd6ab4e593ed10$var$_arrayWithHoles(arr) || $56a45a46de4d736abecd6ab4e593ed10$var$_iterableToArrayLimit(arr, i) || $56a45a46de4d736abecd6ab4e593ed10$var$_unsupportedIterableToArray(arr, i) || $56a45a46de4d736abecd6ab4e593ed10$var$_nonIterableRest();
   }
@@ -7924,6 +7883,47 @@
   function $56a45a46de4d736abecd6ab4e593ed10$var$_arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr;
   }
+  function $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+  function $56a45a46de4d736abecd6ab4e593ed10$var$_objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(Object(source), true).forEach(function (key) {
+          $56a45a46de4d736abecd6ab4e593ed10$var$_defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        $56a45a46de4d736abecd6ab4e593ed10$var$ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+  function $56a45a46de4d736abecd6ab4e593ed10$var$_defineProperty(obj, key, value) {
+    if ((key in obj)) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
   var $56a45a46de4d736abecd6ab4e593ed10$var$baseConfig = {
     showMathMenu: true,
     tex2jax: {
@@ -7931,9 +7931,14 @@
     },
     skipStartupTypeset: true
   };
+  var $56a45a46de4d736abecd6ab4e593ed10$var$defaultSanitizeOptions = {
+    USE_PROFILES: {
+      mathMl: true
+    }
+  };
   var $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview = /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].forwardRef(function (_ref, ref) {
     var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, wrapperTag = _ref.wrapperTag, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError, sanitizeOptions = _ref.sanitizeOptions;
-    var sanitizedMath = $56a45a46de4d736abecd6ab4e593ed10$var$_dompurify["default"].sanitize(math, sanitizeOptions);
+    var sanitizedMath = $56a45a46de4d736abecd6ab4e593ed10$var$_dompurify["default"].sanitize(math, $56a45a46de4d736abecd6ab4e593ed10$var$_objectSpread($56a45a46de4d736abecd6ab4e593ed10$var$_objectSpread({}, $56a45a46de4d736abecd6ab4e593ed10$var$defaultSanitizeOptions), sanitizeOptions));
     var previewRef = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useRef)();
     var _useState = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useState)("none"), _useState2 = $56a45a46de4d736abecd6ab4e593ed10$var$_slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
     // prevent display during processing
@@ -8161,4 +8166,4 @@
   $f639a182e2c8d3d4d1cd6b0496be58c6$var$_reactDom["default"].render(/*#__PURE__*/$f639a182e2c8d3d4d1cd6b0496be58c6$var$_react["default"].createElement($f639a182e2c8d3d4d1cd6b0496be58c6$var$App, null), document.getElementById('root'));
 })();
 
-//# sourceMappingURL=index.5609d457.js.map
+//# sourceMappingURL=index.87f022c5.js.map
