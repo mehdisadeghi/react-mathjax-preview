@@ -7932,8 +7932,8 @@
     skipStartupTypeset: true
   };
   var $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview = /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].forwardRef(function (_ref, ref) {
-    var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, wrapperTag = _ref.wrapperTag, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError;
-    var sanitizedMath = $56a45a46de4d736abecd6ab4e593ed10$var$_dompurify["default"].sanitize(math);
+    var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, wrapperTag = _ref.wrapperTag, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError, sanitizeOptions = _ref.sanitizeOptions;
+    var sanitizedMath = $56a45a46de4d736abecd6ab4e593ed10$var$_dompurify["default"].sanitize(math, sanitizeOptions);
     var previewRef = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useRef)();
     var _useState = (0, $56a45a46de4d736abecd6ab4e593ed10$var$_react.useState)("none"), _useState2 = $56a45a46de4d736abecd6ab4e593ed10$var$_slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
     // prevent display during processing
@@ -8016,11 +8016,13 @@
     id: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].string,
     onLoad: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func,
     onError: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func,
-    onDisplay: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func
+    onDisplay: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].func,
+    sanitizeOptions: $56a45a46de4d736abecd6ab4e593ed10$var$_propTypes["default"].object
   };
   $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview.defaultProps = {
     script: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
     id: "react-mathjax-preview",
+    sanitizeOptions: {},
     wrapperTag: "div"
   };
   var $56a45a46de4d736abecd6ab4e593ed10$var$_default = $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview;
@@ -8159,4 +8161,4 @@
   $f639a182e2c8d3d4d1cd6b0496be58c6$var$_reactDom["default"].render(/*#__PURE__*/$f639a182e2c8d3d4d1cd6b0496be58c6$var$_react["default"].createElement($f639a182e2c8d3d4d1cd6b0496be58c6$var$App, null), document.getElementById('root'));
 })();
 
-//# sourceMappingURL=index.ac5ea758.js.map
+//# sourceMappingURL=index.5609d457.js.map
