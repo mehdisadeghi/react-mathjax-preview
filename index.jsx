@@ -14,7 +14,8 @@ const baseConfig = {
 };
 
 const defaultSanitizeOptions = {
-  USE_PROFILES: {mathMl: true}
+  USE_PROFILES: {mathMl: true},
+  ADD_ATTR: ['columnalign'],
 }
 
 const MathJaxPreview = React.forwardRef(({
