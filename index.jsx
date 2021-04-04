@@ -29,7 +29,7 @@ const MathJaxPreview = React.forwardRef(({
   onDisplay,
   onLoad,
   onError,
-  sanitizeOptions
+  sanitizeOptions,
 }, ref) => {
   const sanitizedMath = DOMPurify.sanitize(math, {...defaultSanitizeOptions, ...sanitizeOptions});
   const previewRef = useRef();
@@ -129,14 +129,16 @@ MathJaxPreview.propTypes = {
   id: PropTypes.string,
   onLoad: PropTypes.func,
   onError: PropTypes.func,
-  onDisplay: PropTypes.func
+  onDisplay: PropTypes.func,
+  sanitizeOptions: PropTypes.object,
 };
 
 MathJaxPreview.defaultProps = {
   script:
     "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML",
   id: "react-mathjax-preview",
-  wrapperTag: "div"
+  sanitizeOptions: {},
+  wrapperTag: "div",
 };
 
 export default MathJaxPreview;
