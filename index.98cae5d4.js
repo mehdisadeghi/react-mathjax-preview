@@ -7934,7 +7934,8 @@
   var $56a45a46de4d736abecd6ab4e593ed10$var$defaultSanitizeOptions = {
     USE_PROFILES: {
       mathMl: true
-    }
+    },
+    ADD_ATTR: ['columnalign']
   };
   var $56a45a46de4d736abecd6ab4e593ed10$var$MathJaxPreview = /*#__PURE__*/$56a45a46de4d736abecd6ab4e593ed10$var$_react["default"].forwardRef(function (_ref, ref) {
     var script = _ref.script, config = _ref.config, className = _ref.className, math = _ref.math, id = _ref.id, style = _ref.style, wrapperTag = _ref.wrapperTag, msDelayDisplay = _ref.msDelayDisplay, onDisplay = _ref.onDisplay, onLoad = _ref.onLoad, onError = _ref.onError, sanitizeOptions = _ref.sanitizeOptions;
@@ -8166,4 +8167,4 @@
   $f639a182e2c8d3d4d1cd6b0496be58c6$var$_reactDom["default"].render(/*#__PURE__*/$f639a182e2c8d3d4d1cd6b0496be58c6$var$_react["default"].createElement($f639a182e2c8d3d4d1cd6b0496be58c6$var$App, null), document.getElementById('root'));
 })();
 
-//# sourceMappingURL=index.87f022c5.js.map
+//# sourceMappingURL=index.98cae5d4.js.map
