@@ -13,6 +13,10 @@ const baseConfig = {
   skipStartupTypeset: true,
 };
 
+const defaultSanitizeOptions = {
+  USE_PROFILES: {mathMl: true}
+}
+
 const MathJaxPreview = React.forwardRef(({
   script,
   config,
@@ -27,7 +31,7 @@ const MathJaxPreview = React.forwardRef(({
   onError,
   sanitizeOptions,
 }, ref) => {
-  const sanitizedMath = DOMPurify.sanitize(math, sanitizeOptions);
+  const sanitizedMath = DOMPurify.sanitize(math, {...defaultSanitizeOptions, ...sanitizeOptions});
   const previewRef = useRef();
   const [display, setDisplay] = useState("none"); //prevent display during processing
   const [loadingState, setLoadingState] = useState(
