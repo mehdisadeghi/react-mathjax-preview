@@ -6806,7 +6806,11 @@
         }
         object = getPrototypeOf(object);
       }
-      return null;
+      function fallbackValue(element) {
+        console.warn('fallback value for', element);
+        return null;
+      }
+      return fallbackValue;
     }
     var html = freeze(['a', 'abbr', 'acronym', 'address', 'area', 'article', 'aside', 'audio', 'b', 'bdi', 'bdo', 'big', 'blink', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'center', 'cite', 'code', 'col', 'colgroup', 'content', 'data', 'datalist', 'dd', 'decorator', 'del', 'details', 'dfn', 'dialog', 'dir', 'div', 'dl', 'dt', 'element', 'em', 'fieldset', 'figcaption', 'figure', 'font', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'img', 'input', 'ins', 'kbd', 'label', 'legend', 'li', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meter', 'nav', 'nobr', 'ol', 'optgroup', 'option', 'output', 'p', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'section', 'select', 'shadow', 'small', 'source', 'spacer', 'span', 'strike', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'tr', 'track', 'tt', 'u', 'ul', 'var', 'video', 'wbr']);
     // SVG
@@ -6899,7 +6903,7 @@
       * Version label, exposed for easier checks
       * if DOMPurify is up to date or not
       */
-      DOMPurify.version = '2.2.6';
+      DOMPurify.version = '2.2.7';
       /**
       * Array of elements that DOMPurify removed during sanitation.
       * Empty if nothing was removed.
@@ -6943,7 +6947,7 @@
       /**
       * Expose whether this browser supports running the full DOMPurify.
       */
-      DOMPurify.isSupported = implementation && typeof implementation.createHTMLDocument !== 'undefined' && documentMode !== 9;
+      DOMPurify.isSupported = typeof getParentNode === 'function' && implementation && typeof implementation.createHTMLDocument !== 'undefined' && documentMode !== 9;
       var MUSTACHE_EXPR$$1 = MUSTACHE_EXPR, ERB_EXPR$$1 = ERB_EXPR, DATA_ATTR$$1 = DATA_ATTR, ARIA_ATTR$$1 = ARIA_ATTR, IS_SCRIPT_OR_DATA$$1 = IS_SCRIPT_OR_DATA, ATTR_WHITESPACE$$1 = ATTR_WHITESPACE;
       var IS_ALLOWED_URI$$1 = IS_ALLOWED_URI;
       /**
@@ -7265,6 +7269,18 @@
           });
         }
         node.removeAttribute(name);
+        // We void attribute values for unremovable "is"" attributes
+        if (name === 'is' && !ALLOWED_ATTR[name]) {
+          if (RETURN_DOM || RETURN_DOM_FRAGMENT) {
+            try {
+              _forceRemove(node);
+            } catch (_) {}
+          } else {
+            try {
+              node.setAttribute(name, '');
+            } catch (_) {}
+          }
+        }
       };
       /**
       * _initDocument
@@ -7394,9 +7410,11 @@
           if (KEEP_CONTENT && !FORBID_CONTENTS[tagName]) {
             var parentNode = getParentNode(currentNode);
             var childNodes = getChildNodes(currentNode);
-            var childCount = childNodes.length;
-            for (var i = childCount - 1; i >= 0; --i) {
-              parentNode.insertBefore(cloneNode(childNodes[i], true), getNextSibling(currentNode));
+            if (childNodes && parentNode) {
+              var childCount = childNodes.length;
+              for (var i = childCount - 1; i >= 0; --i) {
+                parentNode.insertBefore(cloneNode(childNodes[i], true), getNextSibling(currentNode));
+              }
             }
           }
           _forceRemove(currentNode);
@@ -8167,4 +8185,4 @@
   $f639a182e2c8d3d4d1cd6b0496be58c6$var$_reactDom["default"].render(/*#__PURE__*/$f639a182e2c8d3d4d1cd6b0496be58c6$var$_react["default"].createElement($f639a182e2c8d3d4d1cd6b0496be58c6$var$App, null), document.getElementById('root'));
 })();
 
-//# sourceMappingURL=index.98cae5d4.js.map
+//# sourceMappingURL=index.a3755691.js.map
