@@ -28,7 +28,7 @@ describe("ReactMathjaxPreview", () => {
     );
   });
 
-  it("renders MathJax with dynaic script", () => {
+  it("renders MathJax with dynamic script", () => {
     render(
       <ReactMathjaxPreview
         script="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_HTMLorMML"
